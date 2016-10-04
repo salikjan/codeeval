@@ -1,4 +1,4 @@
-# codeeval
+# CodeEval challenges
 Here are CodeEval.com challenges.
 <br>
 All of them written in Java.
