@@ -11,7 +11,7 @@ public class Main {
         Scanner sc = new Scanner(new File(args[0]));
         while (sc.hasNextLine()) {
             String line = sc.nextLine().trim();
-            System.out.println(line);
+            System.out.println(line + "---");
         }
     }
 }
