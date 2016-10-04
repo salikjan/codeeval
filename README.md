@@ -6,10 +6,6 @@ Easy
 Medium
 Hard
 
-New solutions appear as they solved and passed codeeval.com
-assessment machine.
-
-Sincerely yours,
-Salavat Yalalov
+Intermediate challenges solutions are in develop branch in directory Development.
 
 
