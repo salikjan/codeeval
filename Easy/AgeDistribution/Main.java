@@ -7,13 +7,14 @@ public class Main {
 	// write your code here
         Scanner sc = new Scanner(new File(args[0]));
         while (sc.hasNextLine()) {
-            String line = sc.nextLine();
+            String line = sc.nextLine().trim();
             String s = "";
             int age;
             if (line.charAt(0) == '-')
                 age = -1;
             else
                 age = Integer.parseInt(line);
+
             if (age < 0 || age > 100) {
                 s = "This program is for humans";
             } else {
@@ -34,6 +35,7 @@ public class Main {
                 else if (age <= 100)
                     s = "The Golden Years";
             }
+
             System.out.println(s);
         }
     }
