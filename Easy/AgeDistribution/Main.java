@@ -7,9 +7,11 @@ public class Main {
 	// write your code here
         Scanner sc = new Scanner(new File(args[0]));
         while (sc.hasNextLine()) {
-            String line = sc.nextLine().trim();
             String s = "";
             int age;
+
+            String line = sc.nextLine().trim();
+
             if (line.charAt(0) == '-')
                 age = -1;
             else
