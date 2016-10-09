@@ -1,15 +1,17 @@
-# codeeval
+# CodeEval challenges
 Here are CodeEval.com challenges.
+<br>
 All of them written in Java.
+<br>
 They reside in subdirectories:
+<br>
 Easy
+<br>
 Medium
+<br>
 Hard
+<br>
 
-New solutions appear as they solved and passed codeeval.com
-assessment machine.
-
-Sincerely yours,
-Salavat Yalalov
+Intermediate challenges solutions are in <b>develop</b> branch in directory<br>Development.
 
 
