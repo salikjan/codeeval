@@ -1,5 +1,3 @@
-package com.sydev;
-
 import java.io.*;
 
 public class Main {
