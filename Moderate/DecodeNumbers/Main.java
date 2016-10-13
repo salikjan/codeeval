@@ -34,6 +34,7 @@ public class Main {
         } else {
             result += findWays(line.substring(1, line.length()));
         }
+
         return result;
     }
 
