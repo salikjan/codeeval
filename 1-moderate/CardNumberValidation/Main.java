@@ -1,5 +1,3 @@
-package com.sydev;
-
 import java.io.*;
 import java.util.*;
 
@@ -23,6 +21,7 @@ public class Main {
         //
         int end = digits.length;
         int sum = 0;
+	//
         for (int i = 0; i < end; i++) {
             int n = Character.getNumericValue(digits[end - i - 1]);
             if (i % 2 != 0) {
