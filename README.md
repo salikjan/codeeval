@@ -5,11 +5,11 @@ All of them written in Java.
 <br>
 They reside in subdirectories:
 <br>
-Easy
+- Easy
 <br>
-Medium
+- Moderate
 <br>
-Hard
+- Hard
 <br>
 
 Intermediate challenges solutions are in <b>develop</b> branch in directory<br>Development.
