@@ -11,7 +11,3 @@ They reside in subdirectories:
 <br>
 - Hard
 <br>
-
-Intermediate challenges solutions are in <b>develop</b> branch in directory<br>Development.
-
-
