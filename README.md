@@ -5,9 +5,9 @@ All of them written in Java.
 <br>
 They reside in subdirectories:
 <br>
-- Easy
+- 0-easy
 <br>
-- Moderate
+- 1-moderate
 <br>
-- Hard
+- 2-hard
 <br>
