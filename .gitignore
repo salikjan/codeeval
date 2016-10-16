@@ -1,1 +1,6 @@
-development/
+# Intellij
+*.iml
+*.ipr
+*.iws
+.idea/
+out/
