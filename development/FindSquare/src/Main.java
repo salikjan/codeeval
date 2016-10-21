@@ -40,8 +40,25 @@ public class Main {
                 System.out.println("NO MATCH!");
                 return;
             }
+            // find distance to other points to pass them Rectangle() in specific order
+            int l1 = points[0].getDistance(points[1]);
+            int l2 = points[0].getDistance(points[2]);
+            int l3 = points[0].getDistance(points[3]);
 
-            Rectangle r = new Rectangle(points[0], points[1], points[2], points[3]);
+            Rectangle r;
+            if (l1 == l2 && l2 == l3) {
+                System.out.println("false");
+                continue;
+            } else if (l1 == l2) {
+                r = new Rectangle(points[0], points[1], points[3], points[2]);
+            } else if (l2 == l3) {
+                r = new Rectangle(points[0], points[2], points[1], points[3]);
+            } else if (l1 == l3) {
+                r = new Rectangle(points[0], points[1], points[2], points[3]);
+            } else {
+                System.out.println("false");
+                continue;
+            }
 
             if (r.isSquare()) {
                 System.out.println("true");
@@ -68,6 +85,13 @@ class Point {
     public int getY() {
         return this.y;
     }
+
+    public int getDistance(Point p) {
+        int diffX = getX() - p.getX();
+        int diffY = getY()- p.getY();
+        return diffX * diffX + diffY * diffY;
+    }
+
 }
 
 class Rectangle {
@@ -81,10 +105,22 @@ class Rectangle {
     }
 
     public boolean isSquare() {
-        return true;
+        int dlp1p2 = p1.getDistance(p2);
+        int dlp2p3 = p2.getDistance(p3);
+        int dlp3p4 = p3.getDistance(p4);
+        int dlp4p1 = p4.getDistance(p1);
+        int dlp1p3 = p1.getDistance(p3);
+        int dlp2p4 = p2.getDistance(p4);
+
+        if (dlp1p2 == dlp2p3 && dlp2p3 == dlp3p4 && dlp3p4 == dlp4p1) {
+            if (dlp1p3 == dlp2p4) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
-    private double getDistance(Point p1, Point p2) {
-        return Math.sqrt(Math.pow(p1.getX() - p2.getX(), 2) + Math.pow(p1.getY() - p2.getY(), 2));
-    }
 }
