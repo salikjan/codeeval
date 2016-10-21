@@ -25,17 +25,10 @@ public class Main {
             Matcher m = p.matcher(line);
 
             if (m.find()) {
-                String[] s = m.group(1).trim().split(",");
-                points[0] = new Point(Integer.parseInt(s[0]), Integer.parseInt(s[1]));
-
-                s = m.group(2).trim().split(",");
-                points[1] = new Point(Integer.parseInt(s[0]), Integer.parseInt(s[1]));
-
-                s = m.group(3).trim().split(",");
-                points[2] = new Point(Integer.parseInt(s[0]), Integer.parseInt(s[1]));
-
-                s = m.group(4).trim().split(",");
-                points[3] = new Point(Integer.parseInt(s[0]), Integer.parseInt(s[1]));
+                for (int i = 0; i < 4; i++) {
+                    String[] s = m.group(i + 1).trim().split(",");
+                    points[i] = new Point(Integer.parseInt(s[0]), Integer.parseInt(s[1]));
+                }
             } else {
                 System.out.println("NO MATCH!");
                 return;
