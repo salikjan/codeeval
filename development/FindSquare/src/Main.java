@@ -86,6 +86,8 @@ class Point {
         return this.y;
     }
 
+    // Distance is computed as sqrt of this summ but to avoid floating point operations
+    // i suggest using integer values
     public int getDistance(Point p) {
         int diffX = getX() - p.getX();
         int diffY = getY()- p.getY();
