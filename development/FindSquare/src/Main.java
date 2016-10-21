@@ -83,7 +83,7 @@ class Point {
     // i suggest using integer values
     public int getDistance(Point p) {
         int diffX = getX() - p.getX();
-        int diffY = getY()- p.getY();
+        int diffY = getY() - p.getY();
         return diffX * diffX + diffY * diffY;
     }
 
@@ -104,10 +104,12 @@ class Rectangle {
         int dlp2p3 = p2.getDistance(p3);
         int dlp3p4 = p3.getDistance(p4);
         int dlp4p1 = p4.getDistance(p1);
-        int dlp1p3 = p1.getDistance(p3);
-        int dlp2p4 = p2.getDistance(p4);
+        int dlp1p3 = p1.getDistance(p3);  // diagonal
+        int dlp2p4 = p2.getDistance(p4);  // diagonal
 
+        // can be rectangle
         if (dlp1p2 == dlp2p3 && dlp2p3 == dlp3p4 && dlp3p4 == dlp4p1) {
+            // really a square
             if (dlp1p3 == dlp2p4) {
                 return true;
             } else {
