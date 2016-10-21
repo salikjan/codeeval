@@ -13,7 +13,36 @@ public class Main {
     public static void solveChallenge(String... args) throws Throwable {
         Scanner sc = new Scanner(new File(args[0]));
         while (sc.hasNextLine()) {
-            Rectangle r = new Rectangle(sc.nextLine());
+            String line = sc.nextLine();
+            if ("".equals(line)) {
+                continue;
+            }
+
+            String coordsPattern = "\\((.*)\\), \\((.*)\\), \\((.*)\\), \\((.*)\\)";
+            Point[] points = new Point[4];
+
+            Pattern p = Pattern.compile(coordsPattern);
+            Matcher m = p.matcher(line);
+
+            if (m.find()) {
+                String[] s = m.group(1).trim().split(",");
+                points[0] = new Point(Integer.parseInt(s[0]), Integer.parseInt(s[1]));
+
+                s = m.group(2).trim().split(",");
+                points[1] = new Point(Integer.parseInt(s[0]), Integer.parseInt(s[1]));
+
+                s = m.group(3).trim().split(",");
+                points[2] = new Point(Integer.parseInt(s[0]), Integer.parseInt(s[1]));
+
+                s = m.group(4).trim().split(",");
+                points[3] = new Point(Integer.parseInt(s[0]), Integer.parseInt(s[1]));
+            } else {
+                System.out.println("NO MATCH!");
+                return;
+            }
+
+            Rectangle r = new Rectangle(points[0], points[1], points[2], points[3]);
+
             if (r.isSquare()) {
                 System.out.println("true");
             } else {
@@ -24,52 +53,38 @@ public class Main {
 }
 
 class Point {
-    public int x;
-    public int y;
+    private int x;
+    private int y;
 
-    public Point(int x, int y) {
+    Point(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public int getX() {
+        return this.x;
+    }
+
+    public int getY() {
+        return this.y;
     }
 }
 
 class Rectangle {
-    final static String coordsPattern = "\\((.*)\\), \\((.*)\\), \\((.*)\\), \\((.*)\\)";
     Point p1, p2, p3, p4;
 
-    public Rectangle(String coords) {
-        Pattern p = Pattern.compile(coordsPattern);
-        Matcher m = p.matcher(coords);
-
-        if (m.find()) {
-            String[] s = m.group(1).trim().split(",");
-            this.p1 = new Point(Integer.parseInt(s[0]), Integer.parseInt(s[1]));
-
-            s = m.group(2).trim().split(",");
-            this.p2 = new Point(Integer.parseInt(s[0]), Integer.parseInt(s[1]));
-
-            s = m.group(3).trim().split(",");
-            this.p3 = new Point(Integer.parseInt(s[0]), Integer.parseInt(s[1]));
-
-            s = m.group(4).trim().split(",");
-            this.p4 = new Point(Integer.parseInt(s[0]), Integer.parseInt(s[1]));
-        } else {
-            System.out.println("NO MATCH!");
-        }
+    public Rectangle(Point p1, Point p2, Point p3, Point p4) {
+        this.p1 = p1;
+        this.p2 = p2;
+        this.p3 = p3;
+        this.p4 = p4;
     }
 
     public boolean isSquare() {
-        long dlp1p2 = (long)(Math.sqrt(Math.pow(this.p1.x - this.p2.x, 2) - Math.pow(this.p1.y - this.p2.y, 2)) * 10000);
-        long dlp2p3 = (long)(Math.sqrt(Math.pow(this.p2.x - this.p3.x, 2) - Math.pow(this.p2.y - this.p3.y, 2)) * 10000);
-        long dlp3p4 = (long)(Math.sqrt(Math.pow(this.p3.x - this.p4.x, 2) - Math.pow(this.p3.y - this.p4.y, 2)) * 10000);
-        long dlp4p1 = (long)(Math.sqrt(Math.pow(this.p4.x - this.p1.x, 2) - Math.pow(this.p4.y - this.p1.y, 2)) * 10000);
-        long dlp1p3 = (long)(Math.sqrt(Math.pow(this.p1.x - this.p3.x, 2) - Math.pow(this.p1.y - this.p3.y, 2)) * 10000);
-        long dlp2p4 = (long)(Math.sqrt(Math.pow(this.p2.x - this.p4.x, 2) - Math.pow(this.p2.y - this.p4.y, 2)) * 10000);
+        return true;
+    }
 
-        if (dlp1p2 == dlp2p3 && dlp2p3 == dlp3p4 && dlp3p4 == dlp4p1 && dlp1p3 == dlp2p4) {
-            return true;
-        } else {
-            return false;
-        }
+    private double getDistance(Point p1, Point p2) {
+        return Math.sqrt(Math.pow(p1.getX() - p2.getX(), 2) + Math.pow(p1.getY() - p2.getY(), 2));
     }
 }
